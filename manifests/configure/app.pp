@@ -7,9 +7,11 @@ class gerrit::configure::app {
   include ::gerrit
 
   $gerrit_site = $gerrit::app
+  $init_jar = "${gerrit::dir}/gerrit-${gerrit::version}.war"
+  $init_args = "init -d ${gerrit::app} --batch --no-auto-start"
 
   exec { 'gerrit init':
-    command => "java -jar ${gerrit::dir}/gerrit-${gerrit::version}.war init -d ${gerrit::app} --batch --no-auto-start",
+    command => "java -jar ${init_jar} ${init_args}",
     user    => $gerrit::user,
     creates => "${gerrit::app}/bin/gerrit.sh",
   } ->

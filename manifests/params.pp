@@ -22,10 +22,10 @@ class gerrit::params {
   $auth_type = 'OPENID'
   $ldap_server = undef
   $ldap_account_base = undef
-  $ldap_account_pattern = '(&(objectClass=person)(uid=${username}))'
+  $ldap_account_pattern = "(&(objectClass=person)(uid=\${username}))"
   $ldap_full_name = 'displayName'
   $ldap_email_address = 'mail'
   $ldap_group_base = undef
-  $ldap_group_member_pattern = '(&(objectClass=group)(member=${dn}))'
+  $ldap_group_member_pattern = "(&(objectClass=group)(member=\${dn}))"
 
 }

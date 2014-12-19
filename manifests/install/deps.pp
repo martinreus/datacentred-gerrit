@@ -19,6 +19,9 @@ class gerrit::install::deps {
   }
 
   # TODO: Ubuntu specific package name
-  ensure_packages("openjdk-${gerrit::jdk_version}-jre", { 'ensure' => 'installed' })
+  $package_defaults = {
+    'ensure' => 'installed',
+  }
+  ensure_packages("openjdk-${gerrit::jdk_version}-jre", $package_defaults)
 
 }

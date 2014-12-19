@@ -99,6 +99,17 @@ class gerrit (
   $ldap_group_member_pattern  = $gerrit::params::ldap_group_member_pattern,
 ) inherits gerrit::params {
 
+  $auth_type_array = [
+    'OpenID',
+    'OpenID_SSO',
+    'HTTP',
+    'HTTP_LDAP',
+    'CLIENT_SSL_CERT_LDAP',
+    'LDAP',
+    'LDAP_BIND',
+  ]
+  $auth_type_re = join($auth_type_array, '|')
+
   validate_string($version)
   validate_string($jdk_version)
   validate_string($user)
@@ -114,7 +125,7 @@ class gerrit (
   validate_string($weburl)
   validate_re($webport, '^\d+$')
   validate_re($index_type, '^LUCENE|SOLR$')
-  validate_re($auth_type, '^OpenID|OpenID_SSO|HTTP|HTTP_LDAP|CLIENT_SSL_CERT_LDAP|LDAP|LDAP_BIND$')
+  validate_re($auth_type, "^${auth_type_re}$")
   validate_string($ldap_server)
   validate_string($ldap_account_base)
   validate_string($ldap_account_pattern)

@@ -8,13 +8,16 @@ class gerrit::configure::db {
 
     'MYSQL': {
 
+      $init_jar = "${gerrit::dir}/gerrit-${gerrit::version}.war"
+      $init_args = "init -d ${gerrit::app} --batch --no-auto-start"
+
       file { "${gerrit::app}/lib/mysql.jar":
         ensure => link,
         target => '/usr/share/java/mysql.jar',
       } ~>
 
       exec { 'gerrit init mysql':
-        command     => "java -jar ${gerrit::dir}/gerrit-${gerrit::version}.war init -d ${gerrit::app} --batch --no-auto-start",
+        command     => "java -jar ${init_jar} ${init_args}",
         user        => $gerrit::user,
         refreshonly => true,
       }
