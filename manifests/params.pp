@@ -16,7 +16,7 @@ class gerrit::params {
   $db_username = 'gerrit2'
   $db_password = 'password'
   $base_path = 'git'
-  $weburl = "http://${fqdn}"
+  $weburl = "http://${::fqdn}"
   $webport = 8080
   $index_type = 'LUCENE'
   $auth_type = 'OPENID'

@@ -11,7 +11,7 @@ class gerrit::configure::app {
   exec { 'gerrit init':
     command => "java -jar ${gerrit::dir}/gerrit-${gerrit::version}.war init -d ${gerrit::app} --batch --no-auto-start",
     user    => $gerrit::user,
-    creates => "${gerrit::app}/bin/gettit.sh",
+    creates => "${gerrit::app}/bin/gerrit.sh",
   } ->
 
   file { "/etc/init.d/${gerrit::service}":

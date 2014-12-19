@@ -9,7 +9,7 @@ class gerrit::install::deps::mysql {
   class { '::mysql::bindings':
     java_enable => true,
   }
- 
+
   if $gerrit::db_manage {
 
     include ::mysql::server

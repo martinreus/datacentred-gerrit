@@ -42,38 +42,34 @@ class gerrit::configure::config {
     value => $gerrit::auth_type,
   }
 
-  case $gerrit::auth_type {
+  if $gerrit::auth_type == 'LDAP' {
 
-    'LDAP': {
+    gerrit::config { 'ldap/server':
+      value => $gerrit::ldap_server,
+    }
 
-      gerrit::config { 'ldap/server':
-        value => $gerrit::ldap_server,
-      }
+    gerrit::config { 'ldap/accountBase':
+      value => $gerrit::ldap_account_base,
+    }
 
-      gerrit::config { 'ldap/accountBase':
-        value => $gerrit::ldap_account_base,
-      }
+    gerrit::config { 'ldap/accountPattern':
+      value => $gerrit::ldap_account_pattern,
+    }
 
-      gerrit::config { 'ldap/accountPattern':
-        value => $gerrit::ldap_account_pattern,
-      }
+    gerrit::config { 'ldap/accountFullName':
+      value => $gerrit::ldap_full_name,
+    }
 
-      gerrit::config { 'ldap/accountFullName':
-        value => $gerrit::ldap_full_name,
-      }
+    gerrit::config { 'ldap/accountEmailAddress':
+      value => $gerrit::ldap_email_address,
+    }
 
-      gerrit::config { 'ldap/accountEmailAddress':
-        value => $gerrit::ldap_email_address,
-      }
+    gerrit::config { 'ldap/groupBase':
+      value => $gerrit::ldap_group_base,
+    }
 
-      gerrit::config { 'ldap/groupBase':
-        value => $gerrit::ldap_group_base,
-      }
-
-      gerrit::config { 'ldap/groupMemeberPattern':
-        value => $gerrit::ldap_group_member_pattern,
-      }
-
+    gerrit::config { 'ldap/groupMemeberPattern':
+      value => $gerrit::ldap_group_member_pattern,
     }
 
   }
