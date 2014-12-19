@@ -112,7 +112,7 @@ class gerrit (
   validate_string($db_password)
   validate_string($base_path)
   validate_string($weburl)
-  validate_integer($webport)
+  validate_re($webport, '^\d+$')
   validate_re($index_type, '^LUCENE|SOLR$')
   validate_re($auth_type, '^OpenID|OpenID_SSO|HTTP|HTTP_LDAP|CLIENT_SSL_CERT_LDAP|LDAP|LDAP_BIND$')
   validate_string($ldap_server)

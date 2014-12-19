@@ -14,9 +14,9 @@ Module to install and configure gerrit code review
 
 ##Dependencies
 
-* puppetlabs/puppet-inifile
-* puppetlabs/puppet-mysql
-* puppetlabs/puppet-stdlib
+* puppetlabs/puppetlabs-inifile
+* puppetlabs/puppetlabs-mysql
+* puppetlabs/puppetlabs-stdlib
 * maestrodev/puppet-wget
 
 ##Module Description
