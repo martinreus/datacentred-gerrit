@@ -37,6 +37,7 @@ To connect to an external database
 
 ```puppet
 class { 'gerrit':
+  db_manage   => true,
   db_provider => 'MYSQL',
   db_hostname => 'db.example.com',
   db_database => 'reviewdb',
@@ -50,7 +51,7 @@ To authenticate against LDAP
 ```puppet
 class { 'gerrit':
   auth_type                 => 'LDAP',
-  ldap_server               => 'ldap.example.com',
+  ldap_server               => 'ldap://ldap.example.com',
   ldap_account_base         => 'ou=People,dc=example,dc-com',
   ldap_account_pattern      => '(&(objectClass=person)(uid=${username}))',
   ldap_full_name            => 'displayName',
