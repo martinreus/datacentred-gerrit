@@ -4,8 +4,8 @@
 #
 class gerrit::params {
 
-  $version = '2.9.3'
-  $jdk_version = '7'
+  $version = '2.12'
+  $jdk_version = '8'
   $user = 'gerrit2'
   $home = '/opt/gerrit'
   $service = 'gerrit'
