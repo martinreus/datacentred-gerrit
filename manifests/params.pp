@@ -10,7 +10,7 @@ class gerrit::params {
   $home = '/opt/gerrit'
   $service = 'gerrit'
   $db_manage = true
-  $db_provider = 'H2'
+  $db_provider = 'MYSQL'
   $db_hostname = 'localhost'
   $db_database = 'reviewdb'
   $db_username = 'gerrit2'
@@ -19,7 +19,7 @@ class gerrit::params {
   $weburl = "http://${::fqdn}"
   $webport = 8080
   $index_type = 'LUCENE'
-  $auth_type = 'OPENID'
+  $auth_type = 'http'
   $ldap_server = undef
   $ldap_account_base = undef
   $ldap_account_pattern = "(&(objectClass=person)(uid=\${username}))"
