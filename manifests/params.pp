@@ -19,7 +19,7 @@ class gerrit::params {
   $weburl = "http://${::fqdn}"
   $webport = 8080
   $index_type = 'LUCENE'
-  $auth_type = 'http'
+  $auth_type = 'HTTP'
   $ldap_server = undef
   $ldap_account_base = undef
   $ldap_account_pattern = "(&(objectClass=person)(uid=\${username}))"

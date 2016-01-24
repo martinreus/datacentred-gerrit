@@ -138,9 +138,9 @@ class gerrit (
   $dir = "${home}/${version}"
   $jar = "${home}/${version}/gerrit-${version}.war"
 
-  include ::gerrit::install
-  include ::gerrit::configure
-  include ::gerrit::service
+#  include ::gerrit::install
+#  include ::gerrit::configure
+#  include ::gerrit::service
 
   Class['::gerrit::install'] ->
   Class['::gerrit::configure'] ~>
